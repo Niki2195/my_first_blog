@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{post.title}}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}" />
+  </head>
+  <body>
+    <h1>{{post.title}}</h1>
+    <p>{{post.content}}</p>
+    <p>Создано: {{post.created_at}}</p>
+    <p>Обновлено: {{post.updated_at}}</p>
+    <a href="{% url 'post_list' %}">Назад к списку постов</a>
+    <a href="{% url 'post_edit' post.pk %}" class="create-btn2"
+      >Редактировать</a
+    >
+    <a href="{% url 'post_delete' post.pk %}" class="create-btn2">Удалить</a>
+    <script src="{% static 'blog/script.js' %}"></script>
+  </body>
+</html>

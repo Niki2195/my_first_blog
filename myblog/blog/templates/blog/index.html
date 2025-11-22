@@ -1,0 +1,12 @@
+{% extends 'base.html' %} {% block content %}
+<h2>Послежние статьи</h2>
+{% if posts %} {% for post in posts %}
+<div class="post">
+  <h3>{{post.title}}</h3>
+  <p class="date">Опубликовано:{{post.created_at}}</p>
+  <p>{{post.content|truncatewords:30}}</p>
+  <a class="btn" href="/post/{{ post.id }}">Читать далее</a>
+</div>
+{% endfor %}
+<p>Статьей пока нет</p>
+{% endif %} {% endblock %}

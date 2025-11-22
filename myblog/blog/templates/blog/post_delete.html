@@ -1,0 +1,23 @@
+<!-- Страница редактирования поста -->
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Удалить: {{ post.title }}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}" />
+  </head>
+  <body>
+    <h1>Удалить пост: {{ post.title }}</h1>
+    <p>
+      Вы уверены, что хотите удалить этот пост? Это действие невозможно
+      отменить.
+    </p>
+    <form method="POST">
+      {% csrf_token %}
+      <button type="submit">Да,Удалить</button>
+    </form>
+    <a href="{% url 'post_detail' post.pk  %}">Назад</a>
+  </body>
+</html>

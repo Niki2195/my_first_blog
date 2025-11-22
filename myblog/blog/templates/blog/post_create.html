@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{post.title}}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}" />
+  </head>
+  <body>
+    <h1>Создать Новый пост</h1>
+    <form method="POST">
+      {% csrf_token %} {{form.as_p}}
+      <button type="submit" class='create-btn2'>Создать</button>
+    </form>
+    <a href='{% url 'post_list' %}'>Назад к списку постов</a>
+    <script src="{% static 'blog/script.js' %}"></script>
+  </body>
+</html>

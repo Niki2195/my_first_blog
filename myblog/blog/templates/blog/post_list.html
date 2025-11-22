@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Мой блог</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}">
+  </head>
+</html>
+<body>
+  <h1>Мой первый блог</h1>
+  <a href="{% url 'post_create' %}" class="create-btn">Создать пост</a>
+  <ul>
+        <!-- Перебираем все посты -->
+        {% for post in posts %}
+            <li>
+                <!-- Ссылка на страницу поста -->
+                <a href="{% url 'post_detail' post.pk %}">{{ post.title }}</a>
+                <!-- Дата создания -->
+                ({{ post.created_at }})
+            </li>
+        {% endfor %}
+    </ul>
+  <script src="{% static 'blog/script.js' %}"></script>
+</body>
+</html>

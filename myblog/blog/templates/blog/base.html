@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Мой блог</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'blog/style.css' %}" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Мой первый блог</h1>
+      </header>
+      {% block content %}{% endblock %}
+    </div>
+    <script src="{% static 'blog/script.js' %}"></script>
+  </body>
+</html>
